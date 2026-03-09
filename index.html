@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.svg">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">About me</a></li>
+                <li class="dropdown">
+                    <a href="#">Projects ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="grafik-design.html">Grafik Design & Branding</a></li>
+                        <li><a href="3d-design.html">3D Design</a></li>
+                        <li><a href="ux-ui.html">UX/UI</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    </header>
+
+    <main class="container">
+        <section class="content-left">
+            <div class="box">
+                
+                <model-viewer 
+        src="hampter.glb" 
+        alt="A 3D model" 
+        auto-rotate 
+        camera-controls 
+        shadow-intensity="1" 
+        style="width: 100%; height: 400px; background-color: #090909;">
+    </model-viewer>
+            </div>
+        </section>
+
+        <section class="content-right">
+    <div class="box box-top">
+        <h2>Hi! Im Sasha</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore possimus commodi pariatur animi aspernatur earum! Consectetur vitae, sequi pariatur sunt asperiores velit rem, corrupti quasi repellat quam cumque? Debitis, cum?</p>
+    </div>
+
+    <div class="bottom-row">
+        <div class="box box-wide">
+        <h3>Hard Skills</h3>
+        <p>Adobe Package, Canva, Blender, Figma, HTML/CSS</p>
+        <h3>Soft Skills</h3>
+        <p>Adobe Package, Canva, Blender, Figma</p>
+    </div>
+    <div class="box box-narrow">
+            <h3>Contact</h3>
+            <p>example@email.com</p>
+        </div>
+    </div>
+</section>
+    </main>
+
+</body>
+</html>

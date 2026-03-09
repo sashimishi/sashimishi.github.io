@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="grafik-design.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.svg">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">About me</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Projects ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="grafik-design.html">Grafik Design & Branding</a></li>
+                        <li><a href="3d-design.html">3D Design</a></li>
+                        <li><a href="ux-ui.html">UX/UI</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projects-container">
+        <h1 class="page-title">3D Design</h1>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="4cfb9bd4a622f47055ad2c7ecf8fd838.jpg">
+                    <div class="project-overlay">
+                        <button class="btn-view" onclick="openProjectDetails(this)">More</button>
+                    </div>
+                </div>
+                
+                <div class="project-detail-content" style="display: none;">
+                    <h2>Ava the Arachna</h2>
+                    <model-viewer src="Ava4.glb" auto-rotate camera-controls style="width: 100%; height: 600px; background: #11111100; border-radius: 10px;"></model-viewer>
+                    <p>Тут іде опис першого етапу розробки. Ти можеш розповісти про ідею.</p>
+                    <p>А тут опис другої частини проєкту, між якими стоїть ще одна картинка.</p>
+                </div>
+
+                <div class="project-info">
+                    <h3>Ava the Arachna</h3>
+                    <span>Blender</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="4cfb9bd4a622f47055ad2c7ecf8fd838.jpg">
+                    <div class="project-overlay">
+                        <button class="btn-view" onclick="openProjectDetails(this)">More</button>
+                    </div>
+                </div>
+                
+                <div class="project-detail-content" style="display: none;">
+                    <h2>DuckDash! Characters</h2>
+                    <model-viewer src="model.glb" auto-rotate camera-controls style="width: 100%; height: 400px; background: #111; border-radius: 10px;"></model-viewer>
+                    <p>Опис брендингу, який включає інтерактивну 3D модель прямо посеред кейсу.</p>
+                </div>
+
+                <div class="project-info">
+                    <h3>DuckDash! Characters</h3>
+                    <span>Blender</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("projectModal");
+        const closeBtn = document.querySelector(".close-button");
+        const modalBody = document.getElementById("modal-body");
+
+        function openProjectDetails(button) {
+            // Знаходимо картку, в якій лежить кнопка
+            const card = button.closest('.project-card');
+            // Дістаємо з неї прихований HTML-контент
+            const content = card.querySelector('.project-detail-content').innerHTML;
+
+            // Вставляємо цей контент у модалку
+            modalBody.innerHTML = content;
+            
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+            modalBody.innerHTML = ""; // Очищуємо контент при закритті
+        };
+
+        window.onclick = (event) => {
+            if (event.target == modal) closeBtn.onclick();
+        };
+    </script>
+</body>
+</html>
