@@ -52,10 +52,11 @@ header {
     list-style: none;
     display: flex;
     gap: 60px;
-    border: 2px solid white;
+    border: 2px solid #E0E0E0;
     padding: 10px 20px;
     border-radius: 14px;
 }
+
 
 .nav-links a {
     text-decoration: none;
