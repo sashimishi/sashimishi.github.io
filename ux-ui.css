@@ -288,8 +288,12 @@ header {
     color: #E0E0E0;
     max-height: 90vh;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
+.modal-content::-webkit-scrollbar {
+    display: none;
+}
 .close-button {
     position: absolute;
     top: 15px; right: 25px;
@@ -323,6 +327,36 @@ header {
     background: #111;
     border-radius: 12px;
     margin-bottom: 25px;
+}
+
+
+.modal-prev, .modal-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 2px solid #E0E0E000;
+    color: #E0E0E0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+
+.modal-prev { left: 20px; }
+.modal-next { right: 20px; }
+
+.modal-prev:hover, .modal-next:hover {
+    background: #E0E0E0;
+    color: #000;
 }
 
 

@@ -111,39 +111,53 @@
     </main>
 
     <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-body"></div>
-        </div>
+    <button class="modal-prev">‹</button>
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body"></div>
     </div>
+    <button class="modal-next">›</button>
+</div>
 
     <script>
         const modal = document.getElementById("projectModal");
-        const closeBtn = document.querySelector(".close-button");
-        const modalBody = document.getElementById("modal-body");
+const closeBtn = document.querySelector(".close-button");
+const modalBody = document.getElementById("modal-body");
+const prevBtn = document.querySelector(".modal-prev");
+const nextBtn = document.querySelector(".modal-next");
 
-        function openProjectDetails(button) {
-            // Знаходимо картку, в якій лежить кнопка
-            const card = button.closest('.project-card');
-            // Дістаємо з неї прихований HTML-контент
-            const content = card.querySelector('.project-detail-content').innerHTML;
+const cards = Array.from(document.querySelectorAll(".project-card"));
+let currentIndex = 0;
 
-            // Вставляємо цей контент у модалку
-            modalBody.innerHTML = content;
-            
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
+function openProjectByIndex(index) {
+    currentIndex = index;
+    const content = cards[index].querySelector(".project-detail-content").innerHTML;
+    modalBody.innerHTML = content;
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
 
-        closeBtn.onclick = () => {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-            modalBody.innerHTML = ""; // Очищуємо контент при закритті
-        };
+    prevBtn.style.visibility = index === 0 ? "hidden" : "visible";
+    nextBtn.style.visibility = index === cards.length - 1 ? "hidden" : "visible";
+}
 
-        window.onclick = (event) => {
-            if (event.target == modal) closeBtn.onclick();
-        };
+function openProjectDetails(button) {
+    const card = button.closest(".project-card");
+    const index = cards.indexOf(card);
+    openProjectByIndex(index);
+}
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+    modalBody.innerHTML = "";
+};
+
+prevBtn.onclick = () => openProjectByIndex(currentIndex - 1);
+nextBtn.onclick = () => openProjectByIndex(currentIndex + 1);
+
+window.onclick = (event) => {
+    if (event.target == modal) closeBtn.onclick();
+};
     </script>
 </body>
 </html>

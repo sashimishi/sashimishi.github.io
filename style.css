@@ -9,6 +9,7 @@ body {
     background-color: #090909;
     color: #E0E0E0;
     line-height: 1.6;
+    overflow-y: hidden; /* Приховуємо вертикальну смугу прокрутки */
 }
 
 header {
