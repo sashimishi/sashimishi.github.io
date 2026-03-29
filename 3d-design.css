@@ -303,11 +303,14 @@ header {
 
 /* Контент всередині модалки */
 #modal-body img { 
-    width: 100%; 
-    border-radius: 12px; 
+    border-radius: 12px;
+    overflow: hidden;
     margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 25px;
     border: 1px solid #333;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-wrapper {
@@ -321,10 +324,6 @@ header {
     margin-right: auto;
 }
 
-.video-wrapper video {
-    width: 100%;
-    display: block;
-}
 
 #modal-body h2 { 
     font-size: 2rem;

@@ -307,7 +307,6 @@ header {
     border-radius: 12px; 
     margin-top: 20px;
     margin-bottom: 20px; 
-    border: 1px solid #333;
     align-items: center;
 }
 
@@ -325,6 +324,7 @@ header {
     border-radius: 12px;
     margin-bottom: 25px;
 }
+
 
 /* Адаптивність */
 @media (max-width: 768px) {
