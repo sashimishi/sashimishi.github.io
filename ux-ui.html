@@ -51,17 +51,16 @@
 
     <div style="max-width: 900px; margin-left: auto; margin-right: auto;">
 
-        <p style="margin-top: 15px; margin-bottom: 15px;">As an extension of the UA Hub visual identity project, I redesigned the organization's website in Figma to align with the newly developed brand style and logo.</p>
+        <p style="margin:0; ">As an extension of the UA Hub visual identity project, I redesigned the organization's website in Figma to align with the newly developed brand style and logo.</p>
 
-        <div style="border-radius: 12px; overflow: hidden; margin-top: 15px; margin-bottom: 15px; border-radius: 12px;">
+        <div style="border-radius: 12px; overflow: hidden; border-radius: 12px;">
             <img src="laptop_mockup.png" style="width: 100%; display: block;">
         </div>
 
-        <p style="margin-top: 15px; margin-bottom: 15px;">The redesign moved away from the previous visual approach in favor of a cleaner, more professional and minimalist aesthetic — one that feels modern and timeless. Special attention was given to improving site navigation and overall user orientation, making it easier for visitors to find information and understand the organization's mission at a glance.</p>
+        <p>The redesign moved away from the previous visual approach in favor of a cleaner, more professional and minimalist aesthetic — one that feels modern and timeless. Special attention was given to improving site navigation and overall user orientation, making it easier for visitors to find information and understand the organization's mission at a glance.</p>
 
     </div>
 
-    <!-- Ця картинка поза div — залишається на повну ширину -->
     <div style="overflow: hidden; margin-top: 20px; margin-bottom: 25px;">
          <img src="old-new-website.png" style="width: 100%; display: block; border-radius: 0;">
     </div>
@@ -134,6 +133,9 @@ const nextBtn = document.querySelector(".modal-next");
 
 const cards = Array.from(document.querySelectorAll(".project-card"));
 let currentIndex = 0;
+cards.forEach((card, index) => {
+    card.querySelector(".project-image").addEventListener("click", () => openProjectByIndex(index));
+});
 
 function openProjectByIndex(index) {
     currentIndex = index;

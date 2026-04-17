@@ -135,7 +135,31 @@
                 </div>
             </div>
 
-            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="FacebookPost.png">
+                    <div class="project-overlay">
+                        <button class="btn-view" onclick="openProjectDetails(this)">More</button>
+                    </div>
+                </div>
+                
+                <div class="project-detail-content" style="display: none;">
+                    <h2>Integration Project Identity</h2>
+                    <div style="border-radius: 12px; overflow: hidden; margin-top: 15px; margin-bottom: 15px; margin-left: auto; margin-right: auto; max-width: 1000px; display: block;">
+                        <p>For this project, I developed a complete visual identity for a social integration initiative based in Ravensburg, Germany. The work included poster and flyer design, rollup banners, and a cohesive visual language for the event.</p>
+                        <img src="stnd_logo.png">
+                        <p>The central visual motif features two hands holding a colorful intertwining cord — a symbol of different people and different stories connected by a single thread: the shared experience of integrating into a new society. This imagery communicates the project's core message of unity, diversity, and human connection in a simple yet powerful way.</p>
+                        <img src="flyer_mockup.png">
+                        <img src="flyer_mockup2.png">
+                        <img src="rollup_mockup2.png">
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Integration Project Identity</h3>
+                    <span>Adobe Illustrator, Photoshop</span>
+                </div>
+            </div>
 
         </div>
     </main>
@@ -158,6 +182,9 @@ const nextBtn = document.querySelector(".modal-next");
 
 const cards = Array.from(document.querySelectorAll(".project-card"));
 let currentIndex = 0;
+cards.forEach((card, index) => {
+    card.querySelector(".project-image").addEventListener("click", () => openProjectByIndex(index));
+});
 
 function openProjectByIndex(index) {
     currentIndex = index;

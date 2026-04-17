@@ -128,6 +128,9 @@ const nextBtn = document.querySelector(".modal-next");
 
 const cards = Array.from(document.querySelectorAll(".project-card"));
 let currentIndex = 0;
+cards.forEach((card, index) => {
+    card.querySelector(".project-image").addEventListener("click", () => openProjectByIndex(index));
+});
 
 function openProjectByIndex(index) {
     currentIndex = index;
