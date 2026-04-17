@@ -172,9 +172,14 @@ header {
         flex-direction: column;
     }
 
-    html {
+    html, body {
         overflow: auto;
         height: auto;
+    }
+
+    .container {
+        height: auto;
+        overflow: visible;
     }
 
 }
