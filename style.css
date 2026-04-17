@@ -14,7 +14,7 @@ body {
     background-position: top center;
     color: #E0E0E0;
     line-height: 1.6;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 header {
