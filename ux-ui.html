@@ -62,7 +62,7 @@
     </div>
 
     <div style="overflow: hidden; margin-top: 20px; margin-bottom: 25px;">
-         <img src="old-new-website.webp" style="width: 100%; display: block; border-radius: 0;">
+         <img src="old-new-website.png" style="width: 100%; display: block; border-radius: 0;">
     </div>
 
 </div>
@@ -175,7 +175,7 @@ document.getElementById("projectModal").addEventListener("touchstart", (e) => {
 
 document.getElementById("projectModal").addEventListener("touchend", (e) => {
     const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
+    if (Math.abs(diff) > 70) {
         if (diff > 0 && currentIndex < cards.length - 1) {
             openProjectByIndex(currentIndex + 1); // свайп вліво — наступний
         } else if (diff < 0 && currentIndex > 0) {
