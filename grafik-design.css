@@ -354,7 +354,7 @@ header {
     height: 50px;
     padding: 0;
 }
-.project-image {
+.project-card {
     cursor: pointer;
 }
 .modal-prev { left: 20px; }
@@ -377,5 +377,9 @@ header {
         margin: 5% auto;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; /* важливо для iOS */
+    }
+        
+    .modal-prev, .modal-next {
+        display: none;
     }
 }

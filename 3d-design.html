@@ -60,7 +60,7 @@
                     <p style="margin-top: 15px;">The project began with concept art illustrated in Adobe Photoshop, which defined Ava's visual style, proportions, and character. The final 3D model was then built and rigged in Blender, bringing the character from a flat illustration into a fully realized three-dimensional form.</p>
 
                     <div style="border-radius: 12px; overflow: hidden; margin-top: 25px; margin-bottom: 25px;">
-                        <img src="AvaConcept.png" style="width: 100%; display: block;">
+                        <img src="AvaConcept.webp" style="width: 100%; display: block;">
                     </div>
 
                 </div>
@@ -74,7 +74,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="ducks.png">
+                    <img src="ducks.webp">
                     <div class="project-overlay">
                         <button class="btn-view" onclick="openProjectDetails(this)">More</button>
                     </div>
@@ -129,7 +129,7 @@ const nextBtn = document.querySelector(".modal-next");
 const cards = Array.from(document.querySelectorAll(".project-card"));
 let currentIndex = 0;
 cards.forEach((card, index) => {
-    card.querySelector(".project-image").addEventListener("click", () => openProjectByIndex(index));
+    card.addEventListener("click", () => openProjectByIndex(index));
 });
 
 function openProjectByIndex(index) {
@@ -161,6 +161,23 @@ nextBtn.onclick = () => openProjectByIndex(currentIndex + 1);
 window.onclick = (event) => {
     if (event.target == modal) closeBtn.onclick();
 };
+
+let touchStartX = 0;
+
+document.getElementById("projectModal").addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+document.getElementById("projectModal").addEventListener("touchend", (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+        if (diff > 0 && currentIndex < cards.length - 1) {
+            openProjectByIndex(currentIndex + 1); // свайп вліво — наступний
+        } else if (diff < 0 && currentIndex > 0) {
+            openProjectByIndex(currentIndex - 1); // свайп вправо — попередній
+        }
+    }
+});
     </script>
 </body>
 </html>
